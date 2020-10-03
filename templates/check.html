@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Work</title>
+    <style>
+        div{
+        position:absolute;
+        right:10px;
+        top:5px;
+        }
+    </style>
+</head>
+<body>
+<div>
+<button type="button" onclick="location.href='{% url 'log' %}' ">Logout</button>
+    </div>
+<h2>Create Daily Check Report</h2>
+<form action="/postcreate/" method="post">
+    {% csrf_token %}
+    Work Assigned:
+    <input type="text" name="work" required><br><br>
+    Progress:
+    <textarea rows="5" cols="40" name="progress" required></textarea>
+    <br><br>
+    Document Upload:
+    <input type="file" name="files[]" id="files">
+    <input type="hidden" name="url" id="url">
+    <button type="button" onclick="uploadimage()">Upload</button><br><br>
+    <input type="submit" value="Submit"><br><br>
+</form>
+</body>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyAQNiKbRtnsik24ra5oBjC9RsVKKDok0vY",
+    authDomain: "uploadsusingfirebase.firebaseapp.com",
+    databaseURL:  "https://uploadsusingfirebase.firebaseio.com",
+    storageBucket:  "uploadsusingfirebase.appspot.com",
+  };
+  firebase.initializeApp(firebaseConfig);
+  function uploadimage(){
+  var storage = firebase.storage();
+  var file=document.getElementById("files").files[0];
+  var storageref=storage.ref();
+  var thisref=storageref.child(file.name).put(file);
+  thisref.on('state_changed',function(snapshot) {
+  console.log('Done');
+
+  }, function(error) {
+  console.log('Error');
+
+}, function() {
+  // Upload completed successfully, now we can get the download URL
+  thisref.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+    console.log('File available at', downloadURL);
+    document.getElementById("url").value=downloadURL;
+    alert('uploaded successfuly');
+  });
+});
+}
+</script>
+</html>

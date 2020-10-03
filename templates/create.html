@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <title>Work</title>
     <style>
         div{
         position:absolute;
@@ -12,12 +12,15 @@
     </style>
 </head>
 <body>
-<p>Welcomes {{ email }}</p>
-<br><br>
-<button type="button" onclick="location.href={% url 'create' %}">Create Report</button>
-<button type="button"  onclick="location.href={% url 'check' %}">Check Report</button>
 <div>
 <button type="button" onclick="location.href='{% url 'log' %}' ">Logout</button>
     </div>
+<h2>Check Daily Check Report</h2>
+Welcome {{e}}
+<br><br>
+ {% for time,date,work in comb_lis %}
+Time: {{ date }} &nbsp   Work :<a href="/post_check/?z={{time}}"> {{ work }} </a>
+<br>
+{% endfor %}
 </body>
 </html>

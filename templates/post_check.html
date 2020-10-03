@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <title>Work</title>
     <style>
         div{
         position:absolute;
@@ -12,12 +12,22 @@
     </style>
 </head>
 <body>
-<p>Welcomes {{ email }}</p>
-<br><br>
-<button type="button" onclick="location.href={% url 'create' %}">Create Report</button>
-<button type="button"  onclick="location.href={% url 'check' %}">Check Report</button>
 <div>
 <button type="button" onclick="location.href='{% url 'log' %}' ">Logout</button>
     </div>
+<h2>Check Daily Check Report</h2>
+Welcome {{name}}
+<br><br>
+Data :{{d}}
+<br>
+Work : {{w}}
+<br>
+Progress : {{ p }}
+
+<br>
+<br>
+<h4>Image Output:c</h4>
+<img src="{{ url }}" width="100px" height="100px">
+<br>
 </body>
 </html>
