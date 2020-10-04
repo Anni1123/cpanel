@@ -8,11 +8,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign In</title>
+    <style>
+         input{
+            margin-top:20px;
+            height: 30px;
+            width: 150px;
+            border-radius: 5px;
+        }
+        input[type="submit"]{
+            background-color: rgba(7, 179, 185, 0.753);
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+        }
+        button{
+            background-color: rgba(7, 179, 185, 0.753);
+            color: white;
+            width: 150px;
+            height: 30px;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
 
 <form action="/postsignIn/" method="post">
     {% csrf_token %}
+    <br/>
     Email:
     <input type="email" name="email"><br><br>
     Password:
