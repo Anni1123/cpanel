@@ -9,6 +9,26 @@
         right:10px;
         top:5px;
         }
+        input{
+            margin-top:20px;
+            height: 30px;
+            width: 150px;
+            border-radius: 5px;
+        }
+        input[type="submit"]{
+            background-color: rgba(7, 179, 185, 0.753);
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+        }
+        button{
+            background-color: rgba(7, 179, 185, 0.753);
+            color: white;
+            width: 150px;
+            height: 30px;
+            border: none;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -18,6 +38,7 @@
 <h2>Create Daily Check Report</h2>
 <form action="/postcreate/" method="post">
     {% csrf_token %}
+    <br>
     Work Assigned:
     <input type="text" name="work" required><br><br>
     Progress:

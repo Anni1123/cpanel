@@ -8,17 +8,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign In</title>
+    <style>
+        input{
+            margin-top:20px;
+            height: 30px;
+            width: 150px;
+            border-radius: 5px;
+        }
+        input[type="submit"]{
+            background-color: rgba(7, 179, 185, 0.753);
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
 
 <form action="/postsignUp/" method="post">
     {% csrf_token %}
+    <br/>
     Name:
-    <input type="name" name="name"><br><br>
+    <input type="name" name="name" placeholder="Your Name"><br><br>
     Email:
-    <input type="email" name="email"><br><br>
+    <input type="email" name="email" placeholder="Your Email Id"><br><br>
     Password:
-    <input type="password" name="pass"><br><br>
+    <input type="password" name="pass" placeholder="Password"><br><br>
     <input type="submit" value="SignUp"><br><br>
 
 </form>
