@@ -7,13 +7,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign In</title>
+    <title>Sign Up</title>
     <style>
         input{
             margin-top:20px;
             height: 30px;
             width: 150px;
             border-radius: 5px;
+            
         }
         input[type="submit"]{
             background-color: rgba(7, 179, 185, 0.753);
@@ -28,12 +29,20 @@
 <form action="/postsignUp/" method="post">
     {% csrf_token %}
     <br/>
+      <h1>Sign Up</h1>
+     <p>Please fill in this forrm</p>
     Name:
     <input type="name" name="name" placeholder="Your Name"><br><br>
     Email:
     <input type="email" name="email" placeholder="Your Email Id"><br><br>
     Password:
     <input type="password" name="pass" placeholder="Password"><br><br>
+    RepeatPassword:
+    <input type="password" name="pass-repeat" placeholder=" Repeat Password"><br><br>
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+    
     <input type="submit" value="SignUp"><br><br>
 
 </form>
