@@ -25,7 +25,7 @@ def postsignIn(request):
     try:
         user=authe.sign_in_with_email_and_password(email,pasw)
     except:
-        message="Invalid Credentials"
+        message="Invalid Credentials!!Please Chech your Data"
         return render(request,"sigIn.html",{"message":message})
     session_id=user['idToken']
     request.session['uid']=str(session_id)
@@ -54,7 +54,7 @@ def postsignUp(request):
         data = {"name": name, "status": "1"}
         database.child("users").child(uid).child("details").set(data)
      except:
-        message = "Please Sign Up First"
+        message = "Wanna View Our Website...Please Sign Up First !! "
         return render(request, "signUp.html", {"message": message})
      return render(request,"sigIn.html")
 
@@ -89,7 +89,7 @@ def postcreate(request):
             push_notify(name,progress,work)
             return render(request,'welcome.html',{"email":name})
     except:
-        message = "Oops!!User Logout..Please Sign in Again"
+        message = "Oops!!You Logged out..Please Sign in Again to visit our website"
         return render(request, "sigIn.html", {"message": message})
 
 
