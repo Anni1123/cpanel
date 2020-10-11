@@ -54,7 +54,7 @@ def postsignUp(request):
         data = {"name": name, "status": "1"}
         database.child("users").child(uid).child("details").set(data)
      except:
-        message = "Wanna View Our Website...Please Sign Up First !! "
+        message = "Wanna View Our Website...Please Sign Up First!! "
         return render(request, "signUp.html", {"message": message})
      return render(request,"sigIn.html")
 
