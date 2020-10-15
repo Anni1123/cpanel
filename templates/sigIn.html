@@ -41,11 +41,12 @@
 <form action="/postsignIn/" method="post">
     {% csrf_token %}
     <br/>
-    Email:
+   Enter Your Email:
     <input type="email" name="email"><br><br>
-    Password:
+   Enter Your Password:
     <input type="password" name="pass"><br><br>
     <input type="submit" value="SignIn"><br><br>
+    Confirm::
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
