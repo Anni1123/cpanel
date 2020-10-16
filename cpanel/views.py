@@ -54,7 +54,7 @@ def postsignUp(request):
         data = {"name": name, "status": "1"}
         database.child("users").child(uid).child("details").set(data)
      except:
-        message = "Wanna View Our Website...Please Sign Up First!! "
+        message = "Wanna View Our Website...Please Sign Up First! "
         return render(request, "signUp.html", {"message": message})
      return render(request,"sigIn.html")
 
@@ -89,7 +89,7 @@ def postcreate(request):
             push_notify(name,progress,work)
             return render(request,'welcome.html',{"email":name})
     except:
-        message = "Oops!!You Logged out..Please Sign in Again to visit our website"
+        message = "Oops!!You Logged out..please Sign in Again to visit our website"
         return render(request, "sigIn.html", {"message": message})
 
 
